@@ -3,16 +3,29 @@ import { Text, View } from 'react-native';
 import firebase from 'firebase';
 import styles from './styles';
 import config from './FirebaseConfig';
-import LandingScreen from './screens/LandingScreen';
+import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import HomeScreen from './screens/HomeScreen';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    firebase.initializeApp(config);
     this.state = {
-      currentScreen: "landing",
+      loading: true,
+      currentScreen: "home",
     }
+  }
+
+  componentDidMount() {
+    firebase.initializeApp(config);
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log(user)
+      if (user) {
+        this.setState({loading: false, currentScreen: "home"});
+      } else {
+        this.setState({loading: false, currentScreen: "login"});
+      }
+    })
   }
 
   switchScreen = screen => {
@@ -20,15 +33,18 @@ class App extends React.Component {
   }
 
   renderScreen = () => {
-    if (this.state.currentScreen === "landing") {
-      return <LandingScreen switchScreen={this.switchScreen} />
+    if (this.state.currentScreen === "login") {
+      return <LoginScreen switchScreen={this.switchScreen} />
     } else if (this.state.currentScreen === "register") {
       return <RegisterScreen switchScreen={this.switchScreen} /> 
+    } else if (this.state.currentScreen === "home") {
+      return <HomeScreen switchScreen={this.switchScreen} />
     }
   }
 
   render() {
-    return (
+    if (this.state.loading) return null;
+    return(
       this.renderScreen()
     );
   }
