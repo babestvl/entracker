@@ -8,6 +8,9 @@ import styles from '../styles';
 class RegisterScreen extends React.Component {
   constructor(props) {
     super(props);
+    console.ignoredYellowBox = [
+      'setting a timer'
+    ];
     this.state = {
       email: "",
       password: "",
@@ -21,16 +24,15 @@ class RegisterScreen extends React.Component {
     if (password === confirmPassword && gender !== "" ) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert(
-          'Registration Successful',
-          [
-            {text: 'OK'},
-          ],
-          { cancelable: false }
-        )
-      })
-      .then(() => {
-        this.props.switchScreen("home")
+        if (firebase.auth().currentUser) {
+          userId = firebase.auth().currentUser.uid;
+          if (userId) {
+            firebase.database().ref('users/' + userId).set({
+                email: email,
+                gender: gender
+            })
+          }
+        }
       })
       .catch(error => {
         Alert.alert(
@@ -41,7 +43,6 @@ class RegisterScreen extends React.Component {
           ],
           { cancelable: false }
         )
-        return null;
       });
     } else {
       Alert.alert(

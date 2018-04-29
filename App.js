@@ -19,7 +19,6 @@ class App extends React.Component {
   componentDidMount() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
-      console.log(user)
       if (user) {
         this.setState({loading: false, currentScreen: "home"});
       } else {
