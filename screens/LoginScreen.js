@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Alert } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { FormLabel, FormInput, Button } from 'react-native-elements';
 import firebase from 'firebase';
 import styles from '../styles';
 
@@ -19,14 +19,14 @@ class LoginScreen extends Component {
         <View>
           <View style={{marginBottom: 10}}>
             <FormInput 
-              value={this.props.email} 
+              value={this.state.email} 
               onChangeText={email => this.setState({email})}
               placeholder="Email"
             />
           </View>
           <View style={{marginBottom: 20}}>
             <FormInput 
-              value={this.props.password} 
+              value={this.state.password} 
               onChangeText={password => this.setState({password})}
               secureTextEntry={true}
               placeholder="Password"

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import firebase from 'firebase';
-import { TapNavigator, TabBarBottom } from 'react-navigation';
 import styles from '../styles';
+import Form from '../components/Form';
 
 class ImperialScreen extends Component {
   constructor(props) {
@@ -11,12 +11,8 @@ class ImperialScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Imperial Screen</Text>
-        <Button 
-          title="Logout" 
-          onPress={() => firebase.auth().signOut()}
-        />
+      <View>
+        <Form metric={false} pWeight="Pound" pHeight="Feet"/>
       </View>
     );
   }

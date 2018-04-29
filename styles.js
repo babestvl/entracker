@@ -25,6 +25,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     marginBottom: 20
+  },
+  header2: {
+    fontSize: 24,
+    textAlign: 'left',
+    marginLeft: 20,
+    marginBottom: 20
+  },
+  labelForm: {
+    fontSize: 18,
+    marginLeft: 20,
   }
 });
 

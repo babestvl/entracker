@@ -33,16 +33,18 @@ const Tabs = TabNavigator({
       const { routeName } = navigation.state;
       let iconName;
       if (routeName === 'Metric') {
-        iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+        iconName = `ios-options${focused ? '' : '-outline'}`;
       } else if (routeName === 'Imperial') {
         iconName = `ios-options${focused ? '' : '-outline'}`;
       } else if (routeName === 'Data') {
-        iconName = `ios-options${focused ? '' : '-outline'}`;
+        iconName = `ios-list-box${focused ? '' : '-outline'}`;
       }
 
       return <Ionicons name={iconName} size={25} color={tintColor} />;
     },
   }),
+  tabBarPosition: 'bottom',
+  tabBarComponent: TabBarBottom,
   swipeEnabled: false,
   tabBarOptions: {
     labelStyle: styles.tabBar,
