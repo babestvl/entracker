@@ -3,10 +3,11 @@ import { Text, View, Button } from 'react-native';
 import firebase from 'firebase';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import styles from '../styles';
+import MetricScreen from './MetricScreen';
 import ImperialScreen from './ImperialScreen';
 import DataScreen from './DataScreen';
 
-class MetricScreen extends Component {
+class HomeScreen extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,11 +15,7 @@ class MetricScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Metric Screen</Text>
-        <Button 
-          title="Logout" 
-          onPress={() => firebase.auth().signOut()}
-        />
+        <Tabs /> 
       </View>
     );
   }
@@ -30,7 +27,8 @@ const Tabs = TabNavigator({
   Data: { screen: DataScreen }
 },
 {
-  tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
-})
-export default MetricScreen;
+  swipeEnabled: false,
+});
+
+export default HomeScreen;
