@@ -5,7 +5,7 @@ import styles from './styles';
 import config from './FirebaseConfig';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import HomeScreen from './screens/HomeScreen';
+import MetricScreen from './screens/MetricScreen';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class App extends React.Component {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({loading: false, currentScreen: "home"});
+        this.setState({loading: false, currentScreen: "metric"});
       } else {
         this.setState({loading: false, currentScreen: "login"});
       }
@@ -36,8 +36,8 @@ class App extends React.Component {
       return <LoginScreen switchScreen={this.switchScreen} />
     } else if (this.state.currentScreen === "register") {
       return <RegisterScreen switchScreen={this.switchScreen} /> 
-    } else if (this.state.currentScreen === "home") {
-      return <HomeScreen switchScreen={this.switchScreen} />
+    } else if (this.state.currentScreen === "metric") {
+      return <MetricScreen switchScreen={this.switchScreen} />
     }
   }
 

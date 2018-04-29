@@ -39,9 +39,6 @@ class LoginScreen extends Component {
             title="Login"
             onPress={() => {
               firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-              .then(() => {
-                this.props.switchScreen("home")
-              })
               .catch((error) => {
                 Alert.alert(
                   'Login Error',
