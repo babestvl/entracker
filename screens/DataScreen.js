@@ -23,4 +23,3 @@ class DataScreen extends Component {
 }
 
 export default DataScreen;
-

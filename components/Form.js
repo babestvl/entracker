@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Dimensions } from 'react-native';
 import { FormInput, Button } from 'react-native-elements';
 import { Dropdown } from 'react-native-material-dropdown';
+import firebase from 'firebase';
 import styles from '../styles';
 
 class Form extends Component {
@@ -13,9 +14,15 @@ class Form extends Component {
     this.state = {
       weight: '',
       height: '',
-      factor: 0
+      age: '',
+      factor: 0,
     }
   }
+
+  submitInformation = () => {
+
+  }
+   
   render() {
     const data = [
       {
@@ -58,6 +65,14 @@ class Form extends Component {
             placeholder={this.pHeight}
           />
         </View>
+        <View style={{marginBottom: 10}}>
+          <Text style={styles.labelForm}>Input your age</Text>
+          <FormInput 
+            value={this.state.age} 
+            onChangeText={age => this.setState({age})}
+            placeholder={`Age`}
+          />
+        </View>
         <View style={{marginBottom: 20}}>
           <Text style={styles.labelForm}>Select your activity factor</Text>
           <View style={{alignItems: 'center'}}>
@@ -69,6 +84,11 @@ class Form extends Component {
             />
           </View>
         </View> 
+        <Button 
+          title="Submit"
+          onPress={() => this.submitInformation()}
+          style={styles.buttonStyle}
+        />
       </View>
     );
   }
