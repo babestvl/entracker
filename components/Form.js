@@ -3,6 +3,7 @@ import { View, Text, Dimensions, Alert } from 'react-native';
 import { FormInput, Button } from 'react-native-elements';
 import { Dropdown } from 'react-native-material-dropdown';
 import firebase from 'firebase';
+import { callbacks } from '../utils';
 import styles from '../styles';
 
 class Form extends Component {
@@ -33,6 +34,7 @@ class Form extends Component {
           factor: factor
         })
         this.setState({weight: '', height: '', age: '', factor: 0});
+        callbacks.updateData();
       } else {
         Alert.alert(
           'Error',

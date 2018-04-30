@@ -3,17 +3,21 @@ import { Text, View, FlatList } from 'react-native';
 import { ListItem } from "react-native-elements";
 import firebase from 'firebase';
 import styles from '../styles';
+import { callbacks } from '../utils';
 
 class DataScreen extends Component {
   constructor(props) {
     super(props);
+    console.ignoredYellowBox = [
+      'setting a timer'
+    ];
     this.state = {
       data: [],
       loading: true
     }
   }
 
-  componentDidMount() {
+  fetchData() {
     userId = firebase.auth().currentUser.uid;
     let dataRef = firebase.database().ref('users/' + userId + '/data');
     dataRef.once('value').then(snapshot => {
@@ -24,6 +28,16 @@ class DataScreen extends Component {
     .then(() => {
       this.setState({loading: false});
     });
+  }
+
+  updateData = () => {
+    this.setState({data: [], loading: true})
+    this.fetchData();
+  }
+
+  componentDidMount() {
+    this.fetchData();
+    callbacks.updateData = this.updateData;
   }
 
   render() {

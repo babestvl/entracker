@@ -49,7 +49,9 @@ const Tabs = TabNavigator({
   tabBarOptions: {
     labelStyle: styles.tabBar,
     showIcon: true,
-  }
+  },
+  lazy: false,
+  animationEnabled: true,
 });
 
 export default HomeScreen;
