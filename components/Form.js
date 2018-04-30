@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, Dimensions, Alert } from 'react-native';
 import { FormInput, Button } from 'react-native-elements';
 import { Dropdown } from 'react-native-material-dropdown';
 import firebase from 'firebase';
@@ -8,7 +8,7 @@ import styles from '../styles';
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.metric = props.unit;
+    this.metric = props.metric;
     this.pWeight = props.pWeight;
     this.pHeight = props.pHeight;
     this.state = {
@@ -20,7 +20,30 @@ class Form extends Component {
   }
 
   submitInformation = () => {
-
+    const { weight, height, age, factor } = this.state;
+    if (firebase.auth().currentUser) {
+      userId = firebase.auth().currentUser.uid;
+      if (userId && weight !== '' && height !== '' && age !== '' && factor !== 0) {
+        firebase.database().ref('users/' + userId + '/data').push({
+          date: new Date().toDateString(),
+          unit: this.metric ? 'Metric' : 'Imperial',
+          weight: parseFloat(weight),
+          height: parseFloat(height),
+          age: parseInt(age),
+          factor: factor
+        })
+        this.setState({weight: '', height: '', age: '', factor: 0});
+      } else {
+        Alert.alert(
+          'Error',
+          'Please add info correctly',
+          [
+            {text: 'OK'},
+          ],
+          { cancelable: false }
+        )
+      }
+    }
   }
    
   render() {
@@ -83,12 +106,15 @@ class Form extends Component {
               onChangeText={(value) => this.setState({factor: value})}
             />
           </View>
-        </View> 
-        <Button 
-          title="Submit"
-          onPress={() => this.submitInformation()}
-          style={styles.buttonStyle}
-        />
+        </View>
+        <View>
+          <Button 
+            title="Submit"
+            onPress={() => this.submitInformation()}
+            style={styles.buttonStyle}
+          />
+        </View>
+
       </View>
     );
   }
