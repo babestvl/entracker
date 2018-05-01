@@ -65,6 +65,7 @@ class DataScreen extends Component {
                   onPress={() => {
                     this.props.navigation.navigate('Details', {
                       index: index,
+                      date: item.date
                     });
                   }}
                   title={`Data${index+1}`}

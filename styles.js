@@ -44,9 +44,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 20,
   },
+  header4: {
+    fontSize: 24,
+    textAlign: 'left',
+    marginTop: 10,
+    marginLeft: 10,
+  },
   labelForm: {
     fontSize: 18,
     marginLeft: 20,
+  },
+  subHeader: {
+    fontSize: 18,
+    marginLeft: 10,
+    textAlign: 'left',
+    marginBottom: 20,
   }
 });
 
