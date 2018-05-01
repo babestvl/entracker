@@ -1,1 +1,1 @@
-# Weight balance tracker
+# BMR Calculator
