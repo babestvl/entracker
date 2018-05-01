@@ -4,6 +4,7 @@ import { List, ListItem } from "react-native-elements";
 import firebase from 'firebase';
 import styles from '../styles';
 import { callbacks } from '../utils';
+import { storage, personal } from '../storage';
 
 class DataScreen extends Component {
   constructor(props) {
@@ -19,10 +20,17 @@ class DataScreen extends Component {
 
   fetchData() {
     userId = firebase.auth().currentUser.uid;
-    let dataRef = firebase.database().ref('users/' + userId + '/data');
+    let dataRef = firebase.database().ref('users/' + userId);
     dataRef.once('value').then(snapshot => {
       snapshot.forEach((childSnapshot) => {
-        this.state.data.push(childSnapshot.val());
+        if (childSnapshot.key === 'data') {
+          childSnapshot.forEach((child) => {
+            this.state.data.push(child.val());
+            storage.push(child.val());
+          })
+        } else if (childSnapshot.key === 'gender') {
+          personal.gender = childSnapshot.val();
+        } 
       });
     })
     .then(() => {
@@ -56,7 +64,7 @@ class DataScreen extends Component {
                 <ListItem
                   onPress={() => {
                     this.props.navigation.navigate('Details', {
-                      item: item
+                      index: index,
                     });
                   }}
                   title={`Data${index+1}`}

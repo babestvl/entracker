@@ -23,6 +23,9 @@ const Screens = StackNavigator({
   initialRouteName: 'Data',
   swipeEnabled: true,
   headerMode: 'none',
+  cardStyle: {
+    backgroundColor: 'white'
+  }
 });
 
 export default StackScreen;
