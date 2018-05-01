@@ -6,7 +6,7 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import styles from '../styles';
 import MetricScreen from './MetricScreen';
 import ImperialScreen from './ImperialScreen';
-import DataScreen from './DataScreen';
+import StackScreen from './StackScreen';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class HomeScreen extends Component {
 const Tabs = TabNavigator({
   Metric: { screen: MetricScreen },
   Imperial: { screen: ImperialScreen },
-  Data: { screen: DataScreen }
+  Stack: { screen: StackScreen }
 },
 {
   navigationOptions: ({ navigation }) => ({
@@ -36,7 +36,7 @@ const Tabs = TabNavigator({
         iconName = `ios-options${focused ? '' : '-outline'}`;
       } else if (routeName === 'Imperial') {
         iconName = `ios-options${focused ? '' : '-outline'}`;
-      } else if (routeName === 'Data') {
+      } else if (routeName === 'Stack') {
         iconName = `ios-list-box${focused ? '' : '-outline'}`;
       }
 

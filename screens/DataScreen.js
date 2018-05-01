@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList } from 'react-native';
 import { List, ListItem } from "react-native-elements";
-import { Ionicons } from '@expo/vector-icons';
 import firebase from 'firebase';
 import styles from '../styles';
 import { callbacks } from '../utils';
@@ -43,23 +42,34 @@ class DataScreen extends Component {
 
   _keyExtractor = (item, index) => index;
 
+  renderHeader = () => {
+    return <Text style={styles.header3}>Your Data</Text>
+  }
+
   render() {
     if (this.state.loading) return null;
     return (
-      <List>
-        <FlatList
-          data={this.state.data}
-          renderItem={({item, index}) => (
-              <ListItem
-                title={`Data${index+1}`}
-                subtitle={item.date}
-              /> 
-            )}
-          keyExtractor={this._keyExtractor}
-        />
-      </List>
+        <List containerStyle={{marginTop: 0}}>
+          <FlatList
+            data={this.state.data}
+            renderItem={({item, index}) => (
+                <ListItem
+                  onPress={() => {
+                    this.props.navigation.navigate('Details', {
+                      item: item
+                    });
+                  }}
+                  title={`Data${index+1}`}
+                  subtitle={item.date}
+                /> 
+              )}
+            keyExtractor={this._keyExtractor}
+            ListHeaderComponent={this.renderHeader}
+          />
+        </List>
     );
   }
 }
+
 
 export default DataScreen;
