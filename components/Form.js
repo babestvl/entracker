@@ -34,6 +34,14 @@ class Form extends Component {
           factor: factor
         })
         this.setState({weight: '', height: '', age: '', factor: 0});
+        Alert.alert(
+          'Success',
+          'Data added',
+          [
+            {text: 'OK'},
+          ],
+          { cancelable: false }
+        )
         callbacks.updateData();
       } else {
         Alert.alert(

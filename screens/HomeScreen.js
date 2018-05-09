@@ -25,7 +25,7 @@ class HomeScreen extends Component {
 const Tabs = TabNavigator({
   Metric: { screen: MetricScreen },
   Imperial: { screen: ImperialScreen },
-  Stack: { screen: StackScreen }
+  Data: { screen: StackScreen }
 },
 {
   navigationOptions: ({ navigation }) => ({
@@ -36,7 +36,7 @@ const Tabs = TabNavigator({
         iconName = `ios-options${focused ? '' : '-outline'}`;
       } else if (routeName === 'Imperial') {
         iconName = `ios-options${focused ? '' : '-outline'}`;
-      } else if (routeName === 'Stack') {
+      } else if (routeName === 'Data') {
         iconName = `ios-list-box${focused ? '' : '-outline'}`;
       }
 
