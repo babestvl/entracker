@@ -9,9 +9,6 @@ import { storage, personal } from '../storage';
 class DataScreen extends Component {
   constructor(props) {
     super(props);
-    console.ignoredYellowBox = [
-      'setting a timer'
-    ];
     this.state = {
       data: [],
       loading: true

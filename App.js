@@ -14,10 +14,7 @@ class App extends Component {
     this.state = {
       loading: true,
       currentScreen: "home",
-    }
-    console.ignoredYellowBox = [
-      'setting a timer'
-    ];
+    };
   }
 
   componentDidMount() {

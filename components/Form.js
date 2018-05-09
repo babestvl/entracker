@@ -18,9 +18,6 @@ class Form extends Component {
       age: '',
       factor: 0,
     }
-    console.ignoredYellowBox = [
-      'setting a timer'
-    ];
   }
 
   submitInformation = () => {
