@@ -46,8 +46,8 @@ class App extends Component {
     if (this.state.loading) return null;
     return(
       <View style={{flex: 1}}>
-      <Header />
-      {this.renderScreen()}
+        <Header />
+        {this.renderScreen()}
       </View>
     );
   }

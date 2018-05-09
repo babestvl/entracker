@@ -12,7 +12,7 @@ class DataScreen extends Component {
     this.state = {
       data: [],
       loading: true
-    }
+    };
   }
 
   fetchData() {

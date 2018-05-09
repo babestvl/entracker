@@ -6,7 +6,6 @@ import styles from '../styles';
 
 export const mainHeader = () => (
   <View style={styles.menuContainer}>
-
     <Header 
       outerContainerStyles={styles.topMenu}
       centerComponent={{ 

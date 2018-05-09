@@ -16,7 +16,7 @@ class DetailsScreen extends Component {
       data: [],
       calculatedData: [],
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {

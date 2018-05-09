@@ -13,7 +13,7 @@ class RegisterScreen extends Component {
       password: "",
       confirmPassword: "",
       gender: ""
-    }
+    };
   }
 
   register = () => {

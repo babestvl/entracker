@@ -10,7 +10,7 @@ class LoginScreen extends Component {
     this.state = {
       email: "",
       password: ""
-    }
+    };
   }
   render() {
     return (

@@ -17,7 +17,7 @@ class Form extends Component {
       height: '',
       age: '',
       factor: 0,
-    }
+    };
   }
 
   submitInformation = () => {
