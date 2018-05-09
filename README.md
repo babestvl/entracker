@@ -1,1 +1,1 @@
-# BMR Calculator & Tracker
+# Energy Calculator & Tracker

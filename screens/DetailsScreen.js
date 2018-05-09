@@ -39,9 +39,9 @@ class DetailsScreen extends Component {
   calculateImperial = (item) => {
     const { calculatedData } = this.state;
     if (personal.gender === 'male') {
-      calculatedData.push((655+(4.35*item.weight)+(4.7*item.height)-(4.7*item.age))*(item.factor));
-    } else {
       calculatedData.push((66+(6.23*item.weight)+(12.7*item.height)-(6.8*item.age))*(item.factor));
+    } else {
+      calculatedData.push((655+(4.35*item.weight)+(4.7*item.height)-(4.7*item.age))*(item.factor));
     }
   }
 
