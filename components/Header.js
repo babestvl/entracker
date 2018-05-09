@@ -9,7 +9,7 @@ export const mainHeader = () => (
     <Header 
       outerContainerStyles={styles.topMenu}
       centerComponent={{ 
-        text: 'MY TITLE', 
+        text: 'EnTracker', 
         style: { color: '#fff', fontSize: 18 } 
       }}
       rightComponent={firebase.auth().currentUser ? Right : null}
