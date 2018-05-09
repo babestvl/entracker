@@ -41,7 +41,7 @@ class Form extends Component {
             {text: 'OK'},
           ],
           { cancelable: false }
-        )
+        );
         callbacks.updateData();
       } else {
         Alert.alert(

@@ -30,18 +30,18 @@ class DetailsScreen extends Component {
   calculateMetric = (item) => {
     const { calculatedData } = this.state;
     if (personal.gender === 'male') {
-      calculatedData.push((((10*item.weight)+(6.25*item.height)-(5*item.age)+5)*(item.factor)));
+      calculatedData.push((66+(13.7*item.weight)+(5*item.height)-(6.8*item.age))*(item.factor));
     } else {
-      calculatedData.push((((10*item.weight)+(6.25*item.height)-(5*item.age)-161)*(item.factor)));
+      calculatedData.push((655+(9.6*item.weight)+(1.8*item.height)-(4.7*item.age))*(item.factor));
     }
   }
 
   calculateImperial = (item) => {
     const { calculatedData } = this.state;
     if (personal.gender === 'male') {
-      calculatedData.push((((4.536*item.weight)+(15.88*item.height)-(5*item.age)+5)*(item.factor)));
+      calculatedData.push((655+(4.35*item.weight)+(4.7*item.height)-(4.7*item.age))*(item.factor));
     } else {
-      calculatedData.push((((4.536*item.weight)+(15.88*item.height)-(5*item.age)-161)*(item.factor)));
+      calculatedData.push((66+(6.23*item.weight)+(12.7*item.height)-(6.8*item.age))*(item.factor));
     }
   }
 
