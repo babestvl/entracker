@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, Alert } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import firebase from 'firebase';
 import styles from '../styles';
 
-class RegisterScreen extends React.Component {
+class RegisterScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {

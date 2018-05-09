@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, Alert } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import firebase from 'firebase';
