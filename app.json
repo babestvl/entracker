@@ -1,5 +1,13 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+    "name": "EnTracker",
+    "description": "Energy Calculator and Tracker",
+    "sdkVersion": "23.0.0",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.ske.entracker"
+    }
   }
 }
