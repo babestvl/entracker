@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, Button } from 'react-native';
 import firebase from 'firebase';
 import styles from '../styles';
