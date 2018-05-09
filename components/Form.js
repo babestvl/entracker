@@ -51,6 +51,10 @@ class Form extends Component {
   render() {
     const data = [
       {
+        label: 'Activity Factor',
+        value: 0
+      },
+      {
         label: 'Exercise 0 times/week',
         value: 1.2
       },
@@ -106,6 +110,7 @@ class Form extends Component {
               data={data}
               containerStyle={{width: Dimensions.get('window').width - 40, height: 80}}
               onChangeText={(value) => this.setState({factor: value})}
+              value={this.state.factor} 
             />
           </View>
         </View>

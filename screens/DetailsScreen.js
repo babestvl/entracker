@@ -64,7 +64,7 @@ class DetailsScreen extends Component {
         <Text style={styles.subHeader}>{this.date}</Text>
         <View style={{marginLeft: 10, marginRight: 10}}>
           <LineChart
-                style={{ height: 200 }}
+                style={{ height: 180 }}
                 data={ this.state.calculatedData }
                 svg={{ stroke: 'rgb(134, 65, 244)' }}
                 contentInset={{ top: 20, bottom: 20 }}
@@ -72,7 +72,7 @@ class DetailsScreen extends Component {
                 <Grid/>
             </LineChart>
             <BarChart
-                style={{ height: 200 }}
+                style={{ height: 180 }}
                 data={ this.state.calculatedData }
                 svg={{ fill: 'rgba(134, 65, 244)' }}
                 contentInset={{ top: 30, bottom: 30 }}
