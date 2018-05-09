@@ -11,6 +11,9 @@ import StackScreen from './StackScreen';
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
+    console.ignoredYellowBox = [
+      'setting a timer'
+    ];
   }
 
   render() {

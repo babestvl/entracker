@@ -8,9 +8,6 @@ import styles from '../styles';
 class RegisterScreen extends React.Component {
   constructor(props) {
     super(props);
-    console.ignoredYellowBox = [
-      'setting a timer'
-    ];
     this.state = {
       email: "",
       password: "",
@@ -100,6 +97,9 @@ class RegisterScreen extends React.Component {
           <Button 
             title="Register" 
             onPress={() => this.register()}
+            buttonStyle={{
+              backgroundColor: '#767B91'
+            }}
           />
         </View> 
         
@@ -107,6 +107,9 @@ class RegisterScreen extends React.Component {
           <Button
             title="Click to Login"
             onPress={() => this.props.switchScreen("login")}
+            buttonStyle={{
+              backgroundColor: '#767B91'
+            }}
           />
         </View>
       </View>

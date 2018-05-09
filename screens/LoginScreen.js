@@ -51,12 +51,18 @@ class LoginScreen extends Component {
                 return null;
               });
             }}
+            buttonStyle={{
+              backgroundColor: '#767B91'
+            }}
           />
         </View>
         <Button
           title="Click to Register"
           onPress={() => this.props.switchScreen("register")}
           style={styles.buttonStyle}
+          buttonStyle={{
+            backgroundColor: '#767B91'
+          }}
         />
       </View>
     );

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Constants } from 'expo';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +11,6 @@ const styles = StyleSheet.create({
   tabContainer: {
     flex: 1,
     justifyContent: 'center',
-    marginTop: 24,
   },
   stackContainer: {
     flex: 1,
@@ -25,6 +25,14 @@ const styles = StyleSheet.create({
   },
   labelTabBar: {
     fontSize: 12
+  },
+  topMenu: {
+    height: 53,
+    backgroundColor: '#2a324b',
+  },
+  menuContainer: {
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
   },
   header1: {
     fontSize: 24,

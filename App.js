@@ -6,6 +6,7 @@ import config from './FirebaseConfig';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
+import Header from './components/Header';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,9 @@ class App extends React.Component {
       loading: true,
       currentScreen: "home",
     }
+    console.ignoredYellowBox = [
+      'setting a timer'
+    ];
   }
 
   componentDidMount() {
@@ -44,7 +48,10 @@ class App extends React.Component {
   render() {
     if (this.state.loading) return null;
     return(
-      this.renderScreen()
+      <View style={{flex: 1}}>
+      <Header />
+      {this.renderScreen()}
+      </View>
     );
   }
 }

@@ -18,6 +18,9 @@ class Form extends Component {
       age: '',
       factor: 0,
     }
+    console.ignoredYellowBox = [
+      'setting a timer'
+    ];
   }
 
   submitInformation = () => {
@@ -26,7 +29,7 @@ class Form extends Component {
       userId = firebase.auth().currentUser.uid;
       if (userId && weight !== '' && height !== '' && age !== '' && factor !== 0) {
         firebase.database().ref('users/' + userId + '/data').push({
-          date: new Date().toDateString(),
+          date: new Date().toString(),
           unit: this.metric ? 'Metric' : 'Imperial',
           weight: parseFloat(weight),
           height: parseFloat(height),
@@ -114,6 +117,9 @@ class Form extends Component {
             title="Submit"
             onPress={() => this.submitInformation()}
             style={styles.buttonStyle}
+            buttonStyle={{
+              backgroundColor: '#767B91'
+            }}
           />
         </View>
 

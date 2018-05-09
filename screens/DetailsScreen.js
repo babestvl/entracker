@@ -17,6 +17,9 @@ class DetailsScreen extends Component {
       calculatedData: [],
       loading: true,
     }
+    console.ignoredYellowBox = [
+      'setting a timer'
+    ];
   }
 
   componentDidMount() {
