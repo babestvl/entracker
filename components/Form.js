@@ -119,7 +119,6 @@ class Form extends Component {
             }}
           />
         </View>
-
       </View>
     );
   }
