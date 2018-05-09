@@ -19,7 +19,7 @@ export const mainHeader = () => (
 )
 
 const Right = {
-  icon: 'home',
+  icon: 'input',
   color: '#fff', 
   onPress: () => firebase.auth().signOut(),
   underlayColor: '#2a324b',
